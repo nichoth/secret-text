@@ -1,10 +1,96 @@
-/**
- * Don't show until JavaScript is instantiated
- */
-secret-text:not(:defined) {
-	display: none;
-}
+@import url("@substrate-system/a11y");
+@import url("@substrate-system/copy-button/css");
 
 secret-text {
-    background-color: red;
+    --st-bg: #fff;
+    --st-border: #1a1a1a;
+    --st-radius: 6px;
+    --st-text: #1a1a1a;
+    --st-btn: #8a8a8a;
+    --st-btn-hover: #1a1a1a;
+    --st-btn-hover-bg: rgb(0 0 0 / 5%);
+    --st-focus: #2563eb;
+    --st-font:
+        'JetBrains Mono', 'Fira Code', 'Cascadia Code',
+        'Courier New', monospace;
+
+    display: block;
+}
+
+/**
+ * Don't show until JavaScript is ready
+ */
+secret-text:not(:defined) {
+    display: none;
+}
+
+.secret-text-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55em 0.75em;
+    border: 1.5px solid var(--st-border);
+    border-radius: var(--st-radius);
+    background: var(--st-bg);
+}
+
+.secret-text-value {
+    flex: 1 1 0;
+    min-width: 0;
+    font-family: var(--st-font);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--st-text);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: text;
+}
+
+.secret-text-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    flex-shrink: 0;
+}
+
+.secret-text-eye-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--st-btn);
+    border-radius: 4px;
+    line-height: 0;
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+.secret-text-eye-btn:hover {
+    color: var(--st-btn-hover);
+    background-color: var(--st-btn-hover-bg);
+}
+
+.secret-text-eye-btn:focus-visible {
+    outline: 2px solid var(--st-focus);
+    outline-offset: 1px;
+}
+
+/* Eye icon web components and their SVGs */
+.secret-text-eye-btn eye-regular,
+.secret-text-eye-btn eye-slash {
+    display: flex;
+    width: 20px;
+    height: 20px;
+}
+
+secret-text .icon {
+    width: 20px;
+    height: 20px;
+    fill: currentcolor;
 }
