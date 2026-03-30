@@ -1,11 +1,16 @@
 import { define } from '@substrate-system/web-component/util'
 import Debug from '@substrate-system/debug'
-const debug = Debug('{{component-name}}')
+import { define as eyeDefine } from '@substrate-system/icons/eye-slash'
+import { define as regularDefine } from '@substrate-system/icons/eye-regular'
+const debug = Debug('secret-text')
+
+eyeDefine()
+regularDefine()
 
 // for docuement.querySelector
 declare global {
     interface HTMLElementTagNameMap {
-        '{{component-name}}': Example
+        'secret-text': Example
     }
 }
 
@@ -94,4 +99,4 @@ export class Example extends HTMLElement {
     }
 }
 
-define('{{component-name}}', Example)
+define('secret-text', Example)

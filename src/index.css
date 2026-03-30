@@ -1,10 +1,10 @@
 /**
  * Don't show until JavaScript is instantiated
  */
-{{component-name}}:not(:defined) {
+secret-text:not(:defined) {
 	display: none;
 }
 
-{{component-name}} {
+secret-text {
     background-color: red;
 }
