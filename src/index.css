@@ -4,48 +4,51 @@
 secret-text {
     --st-bg: #fff;
     --st-border: #1a1a1a;
-    --st-radius: 6px;
+    --st-radius: 0;
     --st-text: #1a1a1a;
     --st-btn: #8a8a8a;
     --st-btn-hover: #1a1a1a;
     --st-btn-hover-bg: rgb(0 0 0 / 5%);
     --st-focus: #2563eb;
-    --st-font:
-        'JetBrains Mono', 'Fira Code', 'Cascadia Code',
-        'Courier New', monospace;
+    --st-font: 'Courier New', 'Courier', monospace;
 
     display: block;
-}
 
-/**
- * Don't show until JavaScript is ready
- */
-secret-text:not(:defined) {
-    display: none;
+    & button {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    & copy-button {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    & svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:not(:defined) {
+        display: none;
+
+    }
 }
 
 .secret-text-inner {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
     padding: 0.55em 0.75em;
     border: 1.5px solid var(--st-border);
     border-radius: var(--st-radius);
     background: var(--st-bg);
+    padding-right: 0.4rem;
 }
 
 .secret-text-value {
-    flex: 1 1 0;
-    min-width: 0;
     font-family: var(--st-font);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    color: var(--st-text);
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    user-select: text;
 }
 
 .secret-text-actions {
@@ -66,9 +69,7 @@ secret-text:not(:defined) {
     color: var(--st-btn);
     border-radius: 4px;
     line-height: 0;
-    transition:
-        color 0.15s ease,
-        background-color 0.15s ease;
+    transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .secret-text-eye-btn:hover {
@@ -92,5 +93,4 @@ secret-text:not(:defined) {
 secret-text .icon {
     width: 20px;
     height: 20px;
-    fill: currentcolor;
 }

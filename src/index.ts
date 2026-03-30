@@ -14,6 +14,10 @@ eyeSlashDefine()
 eyeRegularDefine()
 copyButtonDefine()
 
+export function define () {
+    return SecretText.define()
+}
+
 export interface CopyEvent extends CustomEvent<{ value:string }> {
     type:'secret-text:copy'
 }
@@ -152,3 +156,5 @@ export class SecretText extends WebComponent.create('secret-text') {
         this._attachListeners()
     }
 }
+
+define()
