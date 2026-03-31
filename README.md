@@ -63,6 +63,8 @@ document.body.innerHTML += `
 `
 ```
 
+![Screenshot of this component](image.png)
+
 ## API
 
 This exposes ESM and common JS via
@@ -96,8 +98,14 @@ require('@substrate-system/secret-text')
 ```ts
 document.querySelector('secret-text')
     .addEventListener('secret-text:show', (ev) => {
-        console.log(ev.detail.isVisible) // true
+        console.log(ev.detail.isVisible)  // true
     })
+
+// or use the `.on` method:
+
+document.querySelector('secret-text').on('show', ev => {
+    console.log(ev.detail.isVisible)  // true
+})
 ```
 
 
