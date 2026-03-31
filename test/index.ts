@@ -1,30 +1,24 @@
 import { test } from '@substrate-system/tapzero'
 import { waitFor } from '@substrate-system/dom'
-import '../src/index.js'
-
-test('example test', async t => {
-    document.body.innerHTML += `
-        <secret-text class="test">
-        </secret-text>
-    `
-
-    const el = await waitFor('secret-text')
-
-    t.ok(el, 'should find an element')
-})
+import { SecretText } from '../src/index.js'
 
 test('re-emits copy-button copy event as secret-text:copy', async t => {
-    t.plan(2)
+    t.plan(3)
 
     document.body.innerHTML += `
-        <secret-text id="copy-test" value="abc"></secret-text>
+        <${SecretText.TAG} id="copy-test" value="abc"></${SecretText.TAG}>
     `
 
-    const el = (await waitFor('#copy-test'))!
+    const el = (await waitFor('#copy-test')) as SecretText
 
     el.addEventListener('secret-text:copy', (ev:Event) => {
         const detail = (ev as CustomEvent<{ value:string }>).detail
         t.equal(detail.value, 'abc', 'detail.value matches the element value')
+    })
+
+    el.on('copy', (ev:CustomEvent) => {
+        const detail = ev.detail
+        t.equal(detail.value, 'abc', 'the `.on` method works')
     })
 
     const copyBtn = el.querySelector('copy-button')
