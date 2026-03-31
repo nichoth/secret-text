@@ -46,6 +46,10 @@ secret-text {
                 fill: blue;
             }
         }
+
+        & button {
+            top: 0;
+        }
     }
 
     & .secret-text-eye-btn {
@@ -66,11 +70,6 @@ secret-text {
             background-color: var(--st-btn-hover-bg);
         }
 
-        /* &:hover {
-            color: var(--st-btn-hover);
-            background-color: var(--st-btn-hover-bg);
-        } */
-
         &:focus-visible {
             outline: 2px solid var(--st-focus);
             outline-offset: 1px;
@@ -85,6 +84,7 @@ secret-text {
     align-items: center;
     gap: 0.5rem;
     padding: 0.55em 0.75em;
+    padding-bottom: 0.2rem;
     border: 1.5px solid var(--st-border);
     border-radius: var(--st-radius);
     background: var(--st-bg);

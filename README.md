@@ -45,6 +45,22 @@ npm i -S @substrate-system/secret-text
 ## Example
 
 ```ts
+import { SecretText } from '@substrate-system/secret-text'
+import '@substrate-system/secret-text/css'
+
+document.body.innerHTML += `
+    <div style="padding: 2rem; max-width: 480px;">
+        <span>API Key</span>
+        <${SecretText.TAG} value="sk-proj-abc123def456ghi789jklmno">
+        </${SecretText.TAG}>
+
+        <span>Webhook Secret</span>
+        <secret-text
+            value="whsec_8xTz3mNqK2pLrV9hJwYcFuDsAeGbIo"
+            visible
+        ></secret-text>
+    </div>
+`
 ```
 
 ## API

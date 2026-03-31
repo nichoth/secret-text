@@ -9,6 +9,7 @@ import {
 } from '@substrate-system/copy-button'
 
 const debug = Debug('secret-text')
+const BULLET = '\u2022'
 
 eyeSlashDefine()
 eyeRegularDefine()
@@ -88,7 +89,7 @@ export class SecretText extends WebComponent.create('secret-text') {
 
     private _mask ():string {
         const len = this.value.length || 12
-        return '\u2022'.repeat(len)
+        return BULLET.repeat(len)
     }
 
     private _reRenderEye () {
