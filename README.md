@@ -45,11 +45,25 @@ require('@substrate-system/secret-text')
 
 ### Attributes
 
-`<all attributes here>`
+| Attribute | Type | Description |
+|-----------|------|-------------|
+| `value` | `string` | The secret text to display or mask |
+| `visible` | `boolean` | If present, the secret is shown in plain text; if absent, it is masked with bullets |
 
 ### Events
 
-`<all events here>`
+| Event | Detail | Description |
+|-------|--------|-------------|
+| `secret-text:copy` | `{ value: string }` | Fired when the copy button is clicked |
+| `secret-text:show` | `{ isVisible: boolean }` | Fired when the secret is revealed |
+| `secret-text:hide` | `{ isVisible: boolean }` | Fired when the secret is hidden |
+
+```ts
+document.querySelector('secret-text')
+    .addEventListener('secret-text:show', (ev) => {
+        console.log(ev.detail.isVisible) // true
+    })
+```
 
 
 ## CSS
@@ -65,11 +79,26 @@ Or minified:
 import '@substrate-system/secret-text/min/css'
 ```
 
-### Customize CSS via some variables
+### Customize CSS via variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `--st-bg` | `#fff` | Background color of the component |
+| `--st-border` | `#1a1a1a` | Border color |
+| `--st-radius` | `0` | Border radius |
+| `--st-text` | `#1a1a1a` | Text color |
+| `--st-btn` | `#8a8a8a` | Eye button icon color |
+| `--st-btn-hover` | `#1a1a1a` | Eye button icon color on hover |
+| `--st-btn-hover-bg` | `rgb(0 0 0 / 5%)` | Eye button background color on hover |
+| `--st-focus` | `#2563eb` | Focus outline color |
+| `--st-font` | `'Courier New', 'Courier', monospace` | Font family for the secret text |
 
 ```css
 secret-text {
-    --example: pink;
+    --st-bg: #f9fafb;
+    --st-border: #d1d5db;
+    --st-radius: 6px;
+    --st-focus: #7c3aed;
 }
 ```
 

@@ -123,6 +123,7 @@ export class SecretText extends WebComponent.create('secret-text') {
 
     private _attachListeners () {
         const eyeBtn = this.querySelector('.secret-text-eye-btn')
+        const copyBtn = this.querySelector(CopyButton.TAG)
 
         eyeBtn?.addEventListener('click', (ev:Event) => {
             ev.preventDefault()
@@ -132,23 +133,30 @@ export class SecretText extends WebComponent.create('secret-text') {
                 detail: { isVisible: this.isVisible }
             })
         })
+
+        copyBtn?.addEventListener('copy', (ev:Event) => {
+            ev.stopPropagation()
+            this.emit('copy', {
+                bubbles: true,
+                detail: { value: this.value }
+            })
+        })
     }
 
     render () {
         const display = this.isVisible ? this.value : this._mask()
         const eyeLabel = this.isVisible ? 'Hide secret' : 'Show secret'
         this.innerHTML = `<div class="secret-text-inner">
-            <span
-                class="secret-text-value"
-                aria-live="polite"
-            >${display}</span>
+            <span class="secret-text-value" aria-live="polite">
+                ${display}
+            </span>
             <div class="secret-text-actions">
                 <button
                     class="secret-text-eye-btn"
                     type="button"
                     aria-label="${eyeLabel}"
                 >${this._eyeContent()}</button>
-                <copy-button></copy-button>
+                <${CopyButton.TAG}></${CopyButton.TAG}>
             </div>
         </div>`
 
