@@ -11,6 +11,8 @@
 
 Web component for secrets. Has a copy button and visiblity icon button.
 
+![Screenshot of this component](image.png)
+
 [See a live demo](https://nichoth.github.io/secret-text/)
 
 <details><summary><h2>Contents</h2></summary>
@@ -62,8 +64,6 @@ document.body.innerHTML += `
     </div>
 `
 ```
-
-![Screenshot of this component](image.png)
 
 ## API
 
