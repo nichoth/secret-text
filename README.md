@@ -14,7 +14,26 @@ Web component for secrets. Has a copy button and visiblity icon button.
 [See a live demo](https://nichoth.github.io/secret-text/)
 
 <details><summary><h2>Contents</h2></summary>
+
 <!-- toc -->
+
+- [Install](#install)
+- [Example](#example)
+- [API](#api)
+  * [ESM](#esm)
+  * [Common JS](#common-js)
+  * [Attributes](#attributes)
+  * [Events](#events)
+- [CSS](#css)
+  * [Import CSS](#import-css)
+  * [Customize CSS via variables](#customize-css-via-variables)
+- [Use](#use)
+  * [JS](#js)
+  * [HTML](#html)
+  * [pre-built](#pre-built)
+
+<!-- tocstop -->
+
 </details>
 
 ## Install
